@@ -1,0 +1,192 @@
+/* Grundlæggende farver, afstande og typografi */
+:root {
+    color-scheme: light;
+    --color-ink: #18313e;
+    --color-muted: #637780;
+    --color-blue: #27677a;
+    --color-blue-dark: #194a5b;
+    --color-blue-pale: #eaf3f5;
+    --color-sky: #d6e9ed;
+    --color-line: #dce6e8;
+    --color-paper: #ffffff;
+    --color-soft: #f6f9f9;
+    --space-1: .5rem;
+    --space-2: 1rem;
+    --space-3: 1.5rem;
+    --space-4: 2rem;
+    --space-5: 3rem;
+    --space-6: 4.5rem;
+    --content-width: 1160px;
+    --radius: 10px;
+    --shadow: 0 18px 50px rgba(24, 49, 62, .10);
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { margin: 0; background: var(--color-paper); color: var(--color-ink); font-family: "Aptos", "Segoe UI", Arial, sans-serif; font-size: 1rem; line-height: 1.65; }
+img { display: block; max-width: 100%; }
+a { color: inherit; }
+a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible { outline: 3px solid #d28a38; outline-offset: 3px; }
+.container { width: min(var(--content-width), calc(100% - 2.5rem)); margin-inline: auto; }
+.section { padding-block: var(--space-6); }
+.eyebrow { margin: 0 0 .8rem; color: var(--color-blue); font-size: .76rem; font-weight: 750; letter-spacing: .13em; text-transform: uppercase; }
+h1, h2, h3, p { margin-top: 0; }
+h1, h2, h3 { line-height: 1.15; letter-spacing: -.035em; }
+h1 { margin-bottom: var(--space-3); font-size: clamp(2.65rem, 9vw, 5rem); font-weight: 720; }
+h1 span { color: var(--color-blue); }
+h2 { margin-bottom: var(--space-3); font-size: clamp(2rem, 5vw, 3rem); font-weight: 700; }
+h3 { margin-bottom: .65rem; font-size: 1.25rem; }
+
+/* Header og hovednavigation */
+.site-header { position: relative; z-index: 2; background: var(--color-paper); border-bottom: 1px solid var(--color-line); }
+.header-content { display: flex; min-height: 78px; flex-direction: column; align-items: center; justify-content: center; gap: .5rem; padding-block: .8rem; }
+.brand { display: inline-flex; align-items: center; gap: .7rem; color: var(--color-ink); font-size: 1.08rem; font-weight: 750; line-height: 1.1; text-decoration: none; }
+.brand small { display: block; margin-top: .28rem; color: var(--color-muted); font-size: .68rem; font-weight: 500; letter-spacing: .02em; }
+.brand-mark { display: grid; width: 39px; height: 39px; place-items: center; border-radius: 50%; background: var(--color-blue); color: white; font-size: .76rem; letter-spacing: .03em; }
+.main-navigation { display: flex; align-items: center; gap: .2rem; }
+.main-navigation a { padding: .55rem .75rem; border-radius: 6px; color: var(--color-muted); font-size: .91rem; font-weight: 600; text-decoration: none; transition: background .18s ease, color .18s ease; }
+.main-navigation a:hover, .main-navigation a[aria-current="page"] { background: var(--color-blue-pale); color: var(--color-blue-dark); }
+
+/* Knapper og fremhævede links */
+.button { display: inline-flex; min-height: 49px; align-items: center; justify-content: center; gap: 1rem; padding: .8rem 1.2rem; border: 0; border-radius: 6px; font: inherit; font-size: .94rem; font-weight: 700; text-decoration: none; cursor: pointer; transition: background .2s ease, transform .2s ease; }
+.button:hover { transform: translateY(-2px); }
+.button-primary { background: var(--color-blue); color: #fff; }
+.button-primary:hover { background: var(--color-blue-dark); }
+.button-light { background: white; color: var(--color-blue-dark); }
+.button-light:hover { background: var(--color-blue-pale); }
+.text-link { display: inline-flex; align-items: center; gap: .6rem; color: var(--color-blue-dark); font-size: .93rem; font-weight: 700; text-decoration-thickness: 1px; text-underline-offset: 4px; }
+.text-link:hover { color: var(--color-blue); }
+
+/* Forsidens hero */
+.hero { overflow: hidden; background: linear-gradient(110deg, var(--color-soft) 0%, var(--color-blue-pale) 100%); }
+.hero-grid { display: grid; align-items: center; gap: var(--space-5); padding-block: var(--space-5); }
+.hero-copy { max-width: 570px; }
+.hero-intro { max-width: 490px; margin-bottom: var(--space-3); color: var(--color-muted); font-size: 1.1rem; }
+.hero-note { margin: .9rem 0 0; color: var(--color-muted); font-size: .8rem; }
+.hero-image-wrap { position: relative; padding: 0 0 1rem 1rem; }
+.hero-image-wrap::before { position: absolute; inset: 1rem 1rem 0 0; border: 1px solid rgba(39, 103, 122, .35); border-radius: var(--radius); content: ""; }
+.hero-image { position: relative; width: 100%; min-height: 260px; aspect-ratio: 1.3; border-radius: var(--radius); object-fit: cover; box-shadow: var(--shadow); }
+.image-caption { position: absolute; right: -.25rem; bottom: 0; display: flex; align-items: center; gap: .7rem; padding: .75rem 1rem; border: 1px solid var(--color-line); border-radius: 8px; background: white; box-shadow: var(--shadow); }
+.caption-icon { display: grid; width: 34px; height: 34px; place-items: center; border-radius: 50%; background: var(--color-blue-pale); color: var(--color-blue); }
+.image-caption strong, .image-caption small { display: block; }
+.image-caption strong { font-size: .85rem; }
+.image-caption small { color: var(--color-muted); font-size: .74rem; }
+
+/* Virksomhedspræsentation */
+.about-grid { display: grid; gap: var(--space-3); }
+.about-grid h2 { margin-bottom: 0; }
+.about-copy { max-width: 590px; color: var(--color-muted); }
+.about-copy p { margin-bottom: 1rem; }
+
+/* Fordele */
+.benefits-section { background: var(--color-soft); }
+.section-heading { margin-bottom: var(--space-4); }
+.section-heading h2 { margin-bottom: 0; }
+.benefits { display: grid; gap: 1rem; }
+.benefit-card { padding: 1.4rem 1.3rem; border-top: 2px solid var(--color-sky); background: white; }
+.benefit-number { display: block; margin-bottom: 1.25rem; color: var(--color-blue); font-size: .76rem; font-weight: 750; letter-spacing: .08em; }
+.benefit-card p { max-width: 320px; margin-bottom: 0; color: var(--color-muted); font-size: .93rem; }
+
+/* Udvalgte services på forsiden */
+.heading-row { display: flex; flex-direction: column; align-items: flex-start; gap: 1rem; }
+.preview-grid { display: grid; gap: 1.2rem; }
+.preview-card { overflow: hidden; border: 1px solid var(--color-line); border-radius: var(--radius); background: white; }
+.preview-card img { width: 100%; aspect-ratio: 1.55; object-fit: cover; }
+.preview-card > div { padding: 1.2rem; }
+.preview-card p:not(.card-label) { margin-bottom: 0; color: var(--color-muted); font-size: .91rem; }
+.card-label { margin-bottom: .45rem; color: var(--color-blue); font-size: .72rem; font-weight: 750; letter-spacing: .1em; text-transform: uppercase; }
+
+/* Fælles introduktion til undersider */
+.page-intro { background: var(--color-blue-pale); }
+.page-intro-content { max-width: 760px; padding-block: var(--space-5); }
+.page-intro h1 { font-size: clamp(2.6rem, 8vw, 4.3rem); }
+.page-intro-content > p:last-child { max-width: 610px; margin-bottom: 0; color: var(--color-muted); font-size: 1.08rem; }
+
+/* Serviceside */
+.service-list .container { display: grid; gap: var(--space-6); }
+.service-detail { display: grid; align-items: center; gap: var(--space-3); }
+.service-photo img { width: 100%; aspect-ratio: 1.4; border-radius: var(--radius); object-fit: cover; }
+.service-copy h2 { font-size: clamp(1.8rem, 5vw, 2.45rem); }
+.service-copy > p:not(.eyebrow) { color: var(--color-muted); }
+.feature-list { display: grid; gap: .55rem; margin: 1.2rem 0 1.5rem; padding: 0; list-style: none; }
+.feature-list li { position: relative; padding-left: 1.5rem; color: var(--color-ink); font-size: .92rem; }
+.feature-list li::before { position: absolute; left: 0; color: var(--color-blue); content: "✓"; font-weight: 800; }
+.cta-section { padding-block: var(--space-5); background: var(--color-blue-dark); color: white; }
+.cta-content { display: flex; flex-direction: column; align-items: flex-start; gap: 1.5rem; }
+.cta-section .eyebrow { color: #c5e2e7; }
+.cta-section h2 { margin-bottom: .7rem; font-size: clamp(1.8rem, 5vw, 2.5rem); }
+.cta-section p:not(.eyebrow) { margin-bottom: 0; color: #e1edef; }
+
+/* Kontaktside og formular */
+.contact-grid { display: grid; gap: var(--space-5); }
+.contact-details > p:not(.eyebrow) { color: var(--color-muted); }
+.contact-list { display: grid; gap: 1.15rem; margin: var(--space-4) 0 0; }
+.contact-list div { padding-bottom: 1rem; border-bottom: 1px solid var(--color-line); }
+.contact-list dt { margin-bottom: .2rem; color: var(--color-blue); font-size: .75rem; font-weight: 750; letter-spacing: .08em; text-transform: uppercase; }
+.contact-list dd { margin: 0; font-size: .95rem; }
+.contact-list a { color: var(--color-ink); text-decoration-thickness: 1px; text-underline-offset: 3px; }
+.form-panel { padding: 1.25rem; border: 1px solid var(--color-line); border-radius: var(--radius); background: var(--color-soft); }
+.form-panel h2 { font-size: clamp(1.8rem, 5vw, 2.35rem); }
+.form-intro { color: var(--color-muted); font-size: .9rem; }
+.contact-form { display: grid; gap: 1rem; margin-top: 1.4rem; }
+.form-row { display: grid; gap: 1rem; }
+.form-field { display: grid; gap: .38rem; }
+.form-field label { font-size: .84rem; font-weight: 700; }
+.form-field input, .form-field select, .form-field textarea { width: 100%; min-height: 47px; padding: .7rem .75rem; border: 1px solid #cbd9dc; border-radius: 5px; background: white; color: var(--color-ink); font: inherit; font-size: .9rem; }
+.form-field textarea { min-height: 130px; resize: vertical; }
+.form-field input::placeholder, .form-field textarea::placeholder { color: #86979d; }
+.contact-form .button { justify-self: start; }
+.quote-tip { padding-top: 0; }
+.quote-tip-inner { display: flex; align-items: flex-start; gap: 1rem; padding: 1.4rem; border-radius: var(--radius); background: var(--color-blue-pale); }
+.tip-icon { display: grid; flex: 0 0 32px; width: 32px; height: 32px; place-items: center; border-radius: 50%; background: white; color: var(--color-blue); font-weight: 800; }
+.quote-tip h2 { margin-bottom: .5rem; font-size: 1.2rem; }
+.quote-tip p { margin-bottom: 0; color: var(--color-muted); font-size: .92rem; }
+
+/* Fælles footer */
+.site-footer { background: #173744; color: white; }
+.footer-main { display: grid; gap: var(--space-4); padding-block: var(--space-5); }
+.brand-light { color: white; }
+.brand-light small { color: #bfd0d4; }
+.brand-light .brand-mark { background: #39798a; }
+.footer-brand > p { margin: 1rem 0 0; color: #c4d4d8; font-size: .9rem; }
+.footer-contact, .footer-links { display: flex; flex-direction: column; align-items: flex-start; gap: .55rem; }
+.footer-main h2 { margin-bottom: .45rem; font-size: .83rem; letter-spacing: .1em; text-transform: uppercase; }
+.footer-contact a, .footer-links a { color: #d1dfe2; font-size: .9rem; text-decoration: none; }
+.footer-contact a:hover, .footer-links a:hover { color: white; text-decoration: underline; text-underline-offset: 3px; }
+.footer-bottom { display: flex; flex-direction: column; gap: .35rem; padding-block: 1rem; border-top: 1px solid rgba(255, 255, 255, .2); color: #c4d4d8; font-size: .76rem; }
+
+/* Tilpasning til tablet og større skærme */
+@media (min-width: 640px) {
+    .header-content { flex-direction: row; justify-content: space-between; }
+    .benefits, .preview-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .benefit-card { padding: 1.65rem; }
+    .heading-row { flex-direction: row; align-items: flex-end; justify-content: space-between; }
+    .service-detail { grid-template-columns: 1fr 1fr; gap: var(--space-4); }
+    .service-detail-reverse .service-photo { order: 2; }
+    .service-detail-reverse .service-copy { order: 1; }
+    .contact-grid { grid-template-columns: .8fr 1.2fr; align-items: start; }
+    .form-panel { padding: 1.7rem; }
+    .form-row { grid-template-columns: 1fr 1fr; }
+    .footer-main { grid-template-columns: 1.4fr 1fr 1fr; }
+    .footer-bottom { flex-direction: row; justify-content: space-between; }
+}
+
+@media (min-width: 900px) {
+    .section { padding-block: 5.5rem; }
+    .hero-grid { grid-template-columns: 1fr 1fr; gap: 4rem; padding-block: 4.5rem; }
+    .hero-image { aspect-ratio: 1.25; }
+    .about-grid { grid-template-columns: .9fr 1.1fr; gap: 5rem; }
+    .benefits, .preview-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .benefit-card { min-height: 215px; }
+    .service-detail { gap: 4rem; }
+    .service-list .container { gap: 5.5rem; }
+    .cta-content { flex-direction: row; align-items: center; justify-content: space-between; }
+    .cta-section { padding-block: 3.6rem; }
+    .contact-grid { grid-template-columns: .72fr 1.28fr; gap: 5rem; }
+    .form-panel { padding: 2.2rem; }
+    .footer-main { padding-block: 3.5rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; }
+}
